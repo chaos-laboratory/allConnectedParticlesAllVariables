@@ -26,12 +26,7 @@ def device_api_call():
 
 def get_connected_devices():
     claimed_devices = device_api_call()
-
-    connected_devices = []  # will contain connected Particle metadata
-
-    for index, device in enumerate(claimed_devices):
-        if device["connected"]:
-            connected_devices.append(device)
+    connected_devices = [device for device in claimed_devices if device["connected"]]
 
     return connected_devices
 
